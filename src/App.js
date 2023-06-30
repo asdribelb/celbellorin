@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import NavBar from './componentes/NavBar/NavBar'
 
 
-
-
 function App() {
 
   return (
