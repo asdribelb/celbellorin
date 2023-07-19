@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 import { getProductById } from '../../../articulos'
 import ItemDetail from '../ItemDetail/ItemDetail'

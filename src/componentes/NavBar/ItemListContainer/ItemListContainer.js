@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react' 
 import { getProducts, getProductsByCategory } from '../../../articulos'
 import ItemList from '../ItemList/ItemList'
-
 import { useParams } from 'react-router-dom'
 
 
