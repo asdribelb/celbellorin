@@ -1,8 +1,13 @@
+import React from 'react'
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
+import ImgCelulares from '../ImgCelulares/ImgCelulares'
 
-const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
-    
+const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+    const handleAddToCart = (quantify) => {
+        console.log('Cantidad agregada: ', quantify);
+    };
+
     return (
         <article className="CardItem">
             <header className="Header">
@@ -10,11 +15,14 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
                     {name}
                 </h2>
             </header>
+
             <picture>
                 <img src={img} alt={name} className="ItemImg" />
             </picture>
+
             <section>
-            <p className="Info">
+
+                <p className="Info">
                     categoria: {category}
                 </p>
                 <p className="Info">
@@ -26,7 +34,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
             </section>
 
             <footer className='ItemFooter'>
-            <ItemCount initial={1} stock={stock} onAdd={(quantify) => console.log('Cantidad agregada ',quantify)}/>
+                <ItemCount initial={1} stock={stock} onAdd={(quantify) => console.log('Cantidad agregada ', quantify)} />
             </footer>
         </article>
     )
@@ -34,4 +42,3 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
 
 export default ItemDetail
 
-    

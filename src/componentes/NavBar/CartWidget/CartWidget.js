@@ -4,7 +4,7 @@ const CarWidget = () => {
 return (
 <div>
 <img src={cart} alt="cart-widget"/>
-2
+1
 
 </div>
 )

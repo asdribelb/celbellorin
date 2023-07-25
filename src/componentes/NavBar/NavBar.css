@@ -1,0 +1,24 @@
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+  }
+  
+  .Categories {
+    display: flex;
+    gap: 20px; /* agrega el espacio entre los enlaces */
+  }
+  
+  .Option {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .ActiveOption {
+    text-decoration: none;
+    color: #00f; /* Cambia el color para los enlaces activos */
+    font-weight: bold;
+  }
