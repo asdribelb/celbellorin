@@ -1,19 +1,15 @@
-.card-container {
+
+  .ImageContainer {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
   }
   
-  .card {
-    width: 50px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  
-  .card-img {
-    width: 50%;
-    height: 80px;
+  .ItemImg {
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 5px;
+
   }
+
+ 

@@ -8,7 +8,7 @@ import iphone14 from './imagen3/iphone14.jpg';
 
 const ImgCelulares = () => {
     return (
-      <div className="card-container">
+      <div className="img-container">
         <div className="card">
           <img src={IPHONE_11} alt="iphone11" className="card-img" />
         </div>
