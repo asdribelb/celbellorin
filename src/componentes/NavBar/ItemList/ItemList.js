@@ -3,8 +3,10 @@ import Item from '../Item/Item';
 
 const ItemList = ({ products }) => {
     return (
-        <div className='ListGroup'>
+        <div className='container'>
+            <div className="productos">
             {products.map(prod => <Item key={prod.id} {...prod} />)}
+        </div>
         </div>
     )
 }

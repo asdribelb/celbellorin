@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import CarWidget from './CartWidget/CartWidget';
+import CartWidget from '../../componentes/NavBar/CartWidget/CartWidget';
 import './NavBar.css';
 import Logo from './Logo/logo';
+
 
 const NavBar = () => {
     return (
@@ -11,11 +12,12 @@ const NavBar = () => {
             <Logo/>
             </Link>
             <div className='Categories'>
-                <NavLink to={`/category/celular`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}> Celulares</NavLink>
-                <NavLink to={`/category/productos`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Productos</NavLink>
+                <NavLink to={`/`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}> Productos</NavLink>
+                <NavLink to={`/category/celulares`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Celulares</NavLink>
                 <NavLink to={`/category/tablets`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Tablets</NavLink>
+                <NavLink to={`/category/contacto`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Contacto</NavLink>
                     </div>
-            <CarWidget />
+                    <li><CartWidget /></li>
             
         </nav>
     )

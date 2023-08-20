@@ -1,42 +1,43 @@
 import React from 'react'
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
-import ImgCelulares from '../ImgCelulares/ImgCelulares'
+import { CartContext } from "../../../context/CartContext";
+import { useContext, useState } from "react";
+import '../ImgCelulares/ImgCelulares.css'
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const handleAddToCart = (quantify) => {
-        console.log('Cantidad agregada: ', quantify);
-    };
+const ItemDetail = ({ item }) => {
+
+    const { carrito, agregarAlCarrito } = useContext(CartContext);
+    console.log(carrito);
+
+    const [cantidad, setCantidad] = useState(1);
+
+    const handleRestar = () => {
+        cantidad > 1 && setCantidad(cantidad - 1)
+    }
+
+    const handleSumar = () => {
+        cantidad < item.stock && setCantidad(cantidad + 1)
+    }
 
     return (
-        <article className="CardItem">
-            <header className="Header">
-                <h2 className="ItemHeader">
-                    {name}
-                </h2>
-            </header>
-
-            <picture>
-                <img src={img} alt={name} className="ItemImg" />
-            </picture>
-
-            <section>
-
-                <p className="Info">
-                    Categoria: {category}
-                </p>
-                <p className="Info">
-                    Descripcion: {description}
-                </p>
-                <p className="Info">
-                    Precio: ${price}
-                </p>
-            </section>
-
-            <footer className='ItemFooter'>
-                <ItemCount initial={1} stock={stock} onAdd={(quantify) => console.log('Cantidad agregada ', quantify)} />
-            </footer>
-        </article>
+        <div className="container">
+            <div className="producto-detalle">
+                <img src={item.img} alt={item.titulo} />
+                <div class="card5">
+                    <h3 className="titulo">{item.name}</h3>
+                    <p className="descripcion">{item.description}</p>
+                    <p className="categoria">Categoría: {item.category}</p>
+                    <p className="precio">${item.price}</p>
+                    <ItemCount
+                        cantidad={cantidad}
+                        handleSumar={handleSumar}
+                        handleRestar={handleRestar}
+                        handleAgregar={() => { agregarAlCarrito(item, cantidad) }}
+                    />
+                </div>
+            </div>
+        </div>
     )
 }
 

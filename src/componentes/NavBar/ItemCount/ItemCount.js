@@ -1,35 +1,18 @@
-import './ItemCount.css'
-import { useState } from 'react' 
+import React from 'react'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-    const [quantify, setQuantify] = useState(initial)
+const ItemCount = ( {cantidad, handleRestar, handleSumar, handleAgregar} ) => {
 
-    const increment = () => {
-        if (quantify < stock) {
-            setQuantify(quantify + 1)
-        }
-    }
+  return (
+    <div>
 
-    const decrement = () => {
-        if (quantify > 1) {
-            setQuantify(quantify - 1)
-        }
-    }
-
-    return (
-        <div className='Counter'>
-            <div className='Controls'>
-                <button className="Button" onClick={decrement}>-</button>
-                <h4 className='Number'>{quantify}</h4>
-                <button className="Button" onClick={increment}>+</button>
-            </div>
-            <div>
-                <button className="Button" onClick={() => onAdd(quantify)} disabled={!stock}>
-                    Agregar al Carrito
-                </button>
-            </div>
+        <div className="item-count">
+            <button onClick={handleRestar}>-</button>
+            <p>{cantidad}</p>
+            <button onClick={handleSumar}>+</button>
         </div>
-    )
+        <button className="agregar-al-carrito" onClick={handleAgregar}>Agregar al carrito</button>
+    </div>
+  )
 }
 
-export default ItemCount;
+export default ItemCount

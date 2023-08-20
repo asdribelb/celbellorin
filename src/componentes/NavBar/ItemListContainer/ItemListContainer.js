@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
-import { getProducts } from '../../../articulos'
+
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
+import { collection, getDocs, query, where  } from "firebase/firestore";
+import { db } from "../../../firebase/config";
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -9,18 +11,21 @@ const ItemListContainer = ({ greeting }) => {
 const { categoryId } = useParams()
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await getProducts(categoryId);
-        setProducts(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    
+    const productosRef = collection(db, "articulos");
 
-    if (categoryId) {
-      fetchProducts();
-    }
+    const q = categoryId ? query(productosRef, where("category", "==", categoryId)) : productosRef;
+
+   getDocs(q)
+   .then((resp) => {
+    
+    setProducts(
+      resp.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id}
+      })
+    )
+   })
+
   }, [categoryId]);
 
   return (
