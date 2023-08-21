@@ -15,7 +15,7 @@ const NavBar = () => {
                 <NavLink to={`/`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}> Productos</NavLink>
                 <NavLink to={`/category/celulares`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Celulares</NavLink>
                 <NavLink to={`/category/tablets`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Tablets</NavLink>
-                <NavLink to={`/category/contacto`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Contacto</NavLink>
+                <NavLink to={`/contacto`} className={({ isActive}) => isActive ? 'ActiveOption' : 'Option'}>Contacto</NavLink>
                     </div>
                     <li><CartWidget /></li>
             
